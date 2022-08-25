@@ -10,6 +10,9 @@ var valoresInseridos = []
 while(continuar){
     var opcao = prompt("Digite 1 para Saque e 2 para Depositar: ")
     var valor = parseFloat(prompt("Digite um valor: "))
+    if(valor < 0){
+        continue;
+    }
     valorTotal = valorTotal + valor
     quantidadedeValor++
     valoresInseridos[contador] = valor
@@ -18,7 +21,9 @@ while(continuar){
         maiorValor = valor
     }
     if(opcao == 1 ){
-        saldoTotal = saldoTotal - valor
+        if(valor <= saldoTotal){
+            saldoTotal = saldoTotal - valor
+        }
     }
     else if (opcao == 2 ){
         saldoTotal = saldoTotal + valor
